@@ -1,6 +1,7 @@
 [@react.component]
 let make = () => {
-  <main>
-    {React.string({j|Steffan Sølvsten|j})}
-  </main>;
+  <div className="main">
+    <h1> {React.string({j|Steffan Sølvsten|j})} </h1>
+    <hr/>
+  </div>
 };

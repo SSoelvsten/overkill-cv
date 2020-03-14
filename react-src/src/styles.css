@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", Helvetica, Arial,
+    sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.main {
+  margin: 1rem 10%;
+}
+
+.rc {
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
