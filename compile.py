@@ -24,12 +24,15 @@ def compile_static_html():
         index_html = index_html.replace("    <script src=\"/Index.js\"></script>\n", "")
 
         # Add style sheet
-        style = "    <link rel=\"stylesheet\" href=\"react-src/src/styles.css\">"
+        style = "    <link rel=\"stylesheet\" href=\"styles.css\">"
         index_html = index_html.replace("  </head>\n", style + "\n  </head>\n")
 
         return index_html
 
 if __name__ == "__main__":
+    # Copy over style sheet
+    os.system("cp react-src/src/styles.css styles.css")
+
     # Combine into static website
     static_html = compile_static_html()
 
