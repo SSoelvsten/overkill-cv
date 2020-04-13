@@ -1,0 +1,28 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: develop
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout develop
+        uses: actions/checkout@v2
+        with:
+          ref: develop
+          persist-credentials: false
+
+      - name: Install
+        run: cd react-src/ && npm install
+
+      - name: Build
+        run: mkdir -p build/ && make
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: master
+          FOLDER: build
