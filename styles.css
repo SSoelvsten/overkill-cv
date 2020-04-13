@@ -1,0 +1,75 @@
+body {
+  margin: 1rem 10%;
+  font-family: "Segoe UI", Helvetica, Arial,
+    sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.rc {
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+/* Banner Component */
+.header .banner {
+  padding-top: 2rem;
+}
+
+.header .banner h1 {
+  font-size: 3rem;
+}
+
+@media screen and (max-width: 500px) {
+  .header .banner h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Info Component */
+.header .info .portrait {
+  width: 20rem;
+  vertical-align: top;
+}
+
+.header .info > div {
+  display: inline-block;
+  vertical-align: top;
+  margin: 1rem;
+}
+
+.header .info .contact {
+  width: 15rem;
+}
+
+.header .info .text {
+  width: calc(100% - 22rem - 17rem);
+}
+
+@media screen and (max-width : 1200px) {
+  .header .info .portrait {
+    display: none;
+  }
+
+  .header .info .text {
+    width: calc(100% - 20rem);
+  }
+}
+
+@media screen and (max-width : 850px) {
+  .header .info .text {
+    display: block;   nav-down: auto;
+    width: calc(100% - 2rem);
+  }
+}
+
+/* Publications Component */
+li.publication emph {
+  font-weight: 600;
+}
+
+/* Footer */
+.footer {
+  margin: 0 10%;
+  font-size: smaller;
+  color: gray;
+  text-align: center;
+}
+
