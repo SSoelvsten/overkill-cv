@@ -51,7 +51,9 @@ let make = () => {
                     | Fall(year) => "(Spring of " ++ string_of_int(year) ++ ")"
                 } ++ " under ") |> React.string}
                 {link_of_contact(teacher)}
-                {(if (idx !== List.length(courses) - 1) {", "} else {". "}) |> React.string}
+                {(if (idx < List.length(courses) - 2) {", "}
+                  else if (idx === List.length(courses) - 2) {", and "}
+                  else {". "}) |> React.string}
             </span>
         }) |> Array.of_list
            |> React.array}
