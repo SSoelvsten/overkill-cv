@@ -1,4 +1,6 @@
 # SSoelvsten.github.io
+![Build and Deploy](https://github.com/SSoelvsten/SSoelvsten.github.io/workflows/Build%20and%20Deploy/badge.svg?branch=develop)
+
 As a researcher you will inevitably have to create a CV website. It seems like a
 universal law for all these websites, that they also have to be completely
 static and have no styling to speak off. Following up on this tradition, this
@@ -15,15 +17,20 @@ honorable paths are even fewer. Hence this website is made the following way
     absolutely no bugs in it anywhere!
 - A server-side rendering of the application is then replacing the `root` node
   for React in the HTML template.
+- The server-side rendering is automatically deployed to the `master` branch as
+  a Github Action on each commit on the `develop`.
+  
+To support continuous integration, the `master` branch only contains the build
+files, while all the magic happens on this branch.
   
 ## Dependencies
-To install all dependencies do the following
+To install all dependencies on `ReasonML` and more, run the following command
 ```bash
-cd react-src/
-npm install
+cd react-src/ && npm install
 ```
 
 ## Compile
-To compile a new static version of the website just run `make`.
+To compile a new static version of the website just run `make`. This makes use
+of a `python3` script.
 
 

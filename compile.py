@@ -31,11 +31,12 @@ def compile_static_html():
 
 if __name__ == "__main__":
     # Copy over style sheet
-    os.system("cp react-src/src/styles.css styles.css")
+    os.system("cp react-src/src/styles.css build/styles.css")
+    os.system("cp -R img build/img")
 
     # Combine into static website
     static_html = compile_static_html()
 
-    with open("index.html", 'w') as index_file:
+    with open("build/index.html", 'w') as index_file:
         index_file.write(static_html)
 
