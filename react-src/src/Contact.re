@@ -1,4 +1,4 @@
-type status = PhDStudent | PostDoc | AssProf | Prof;
+type status = PhDStudent | PostDoc | AssocProf | Prof;
 
 type contact = {
     name: string,
@@ -10,7 +10,7 @@ type contact = {
 
 let name_of_contact = (contact : contact) => {
     let status_string = switch contact.status {
-        | AssProf => "Ass. Prof."
+        | AssocProf => "Assoc. Prof."
         | Prof => "Prof."
         | _ => ""
     }
@@ -49,7 +49,7 @@ module Contacts = {
 
     let kasper_green : contact = {
         name: "Kasper Green Larsen",
-        status: AssProf,
+        status: AssocProf,
         url: "https://cs.au.dk/~larsen/",
         contact: "larsen@cs.au.dk",
         association: None,
@@ -57,7 +57,7 @@ module Contacts = {
 
     let kristoffer_arnsfelt_hansen : contact = {
         name: "Kristoffer Arnsfelt Hansen",
-        status: AssProf,
+        status: AssocProf,
         url: "https://www.cs.au.dk/~arnsfelt/",
         contact: "arnsfelt@cs.au.dk",
         association: Some("Advisor for research project in Algorithmic Game Theory")
