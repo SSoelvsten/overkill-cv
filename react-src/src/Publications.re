@@ -1,12 +1,9 @@
 open Contact;
 
-type publication_status = InReview | Accepted(string) | Published(string)
-
 type publication = {
     title: string,
-    status: publication_status,
     year: int,
-    url: option(string),
+    urls: list((string, string)),
     authors: list(contact),
     notes: option(React.element),
 };
@@ -14,11 +11,10 @@ type publication = {
 let publications : list(publication) = [
     {
         title: {j|∃R-Completeness of Stationary Nash Equilibria in Perfect Information Stochastic Games|j},
-        status: InReview,
         year: 2020,
-        url: None,
+        urls: [],
         authors: [Contacts.kristoffer_arnsfelt_hansen, Contacts.steffan_soelvsten],
-        notes: None,
+        notes: Some(React.string({j|Submitted to MFCS 2020|j})),
     }
 ];
 
@@ -27,24 +23,27 @@ let make = () => {
     <>
         <h2>{React.string("Publications")}</h2>
         <ul>
-            {publications |> List.map(({title, status, year, url, authors, notes}) => {
+            {publications |> List.map(({title, year, urls, authors, notes}) => {
                 <li className="publication" key={title}>
-                    <emph>
-                        {switch url {
-                        | None => React.string(title)
-                        | Some(url) => <Link text={title} href={url} />
-                        }}
-                    </emph> <br />
+                    <emph> {React.string(title)} </emph>
+                    { if (List.length(urls) > 0) {
+                        <>
+                            {React.string(" (")}
+                            { urls |> List.mapi((idx, (name,url)) =>
+                                <>
+                                    <Link text={name} href={url} />
+                                    {if (idx < List.length(urls) - 1) {React.string(", ")} else {<> </>}}
+                                </>)
+                                   |> Array.of_list
+                                   |> React.array}
+                            {React.string(")")}
+                        </>
+                    } else { <> </> }}
+                    <br />
                     {authors |> List.map(({name}) => name )
                              |> Array.of_list
                              |> Js.Array.joinWith(", ")
                              |> React.string}
-                    <br />
-                    {switch status {
-                    | InReview => "In Review"
-                    | Accepted(publication) => "To be published in " ++ publication
-                    | Published(publication) => publication
-                    } |> React.string}
                     {(", " ++ string_of_int(year)) |> React.string}
                     {switch notes {
                     | None => <> </>
