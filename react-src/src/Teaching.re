@@ -48,7 +48,7 @@ let make = () => {
                 }}
                 {" " ++ (switch time {
                     | Spring(year) => "(Spring of " ++ string_of_int(year) ++ ")"
-                    | Fall(year) => "(Spring of " ++ string_of_int(year) ++ ")"
+                    | Fall(year) => "(Fall of " ++ string_of_int(year) ++ ")"
                 } ++ " under ") |> React.string}
                 {link_of_contact(teacher)}
                 {(if (idx !== List.length(courses) - 1) {", "} else {". "}) |> React.string}
