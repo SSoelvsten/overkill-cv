@@ -57,5 +57,11 @@ let make = () => {
             </span>
         }) |> Array.of_list
            |> React.array}
+
+        <br /> <br />
+
+        {"I have supervised 2 bachelor students in implementing a " |> React.string}
+        <Link text={"Cache-oblivious Ordered Boolean Decision Diagram"} href={"https://github.com/SSoelvsten/cache-oblivious-obdd"} />
+        {" for a summer project based on a paper by Lars Arge in 1996 and my heavy optimisations and extensions thereof." |> React.string}
     </>
 }
