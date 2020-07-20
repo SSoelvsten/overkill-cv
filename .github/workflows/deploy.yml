@@ -18,7 +18,7 @@ jobs:
         run: cd react-src/ && npm install
 
       - name: Build
-        run: mkdir -p build/ && make
+        run: make
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
