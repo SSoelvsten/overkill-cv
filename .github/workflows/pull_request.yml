@@ -1,0 +1,45 @@
+name: Prerender Pull Requests
+
+on:
+  pull_request:
+    branches: develop
+
+jobs:
+  prerender:
+    name: Prerender webpage
+    strategy:
+      matrix:
+        width: [1920, 1280, 1200, 992, 768, 480]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout develop
+        uses: actions/checkout@v2
+
+      - name: Install
+        run: cd react-src/ && npm install
+
+      - name: Build
+        run: mkdir -p build/ && make
+
+      - name: Screenshot Website
+        uses: swinton/screenshot-website@v1.x
+        with:
+          source: build/index.html
+          destination: screenshot-${{ matrix.width }}.png
+          full-page: true
+          width: ${{ matrix.width }}
+
+  clean-artifacts:
+    name: Clean up artifacts
+    runs-on: ubuntu-latest
+    needs: prerender
+    timeout-minutes: 10
+
+    steps:
+    - name: Remove artifacts
+      uses: c-hive/gha-remove-artifacts@v1
+      with:
+        age: '1 week'
+        skip-tags: true
+        skip-recent: 1
