@@ -12,9 +12,15 @@ let publications : list(publication) = [
     {
         title: {j|∃R-Completeness of Stationary Nash Equilibria in Perfect Information Stochastic Games|j},
         year: 2020,
-        urls: [("arXiv", "https://arxiv.org/abs/2006.08314")],
+        urls: [("arXiv", "https://arxiv.org/abs/2006.08314"),
+               ("MFCS 2020", "https://doi.org/10.4230/LIPIcs.MFCS.2020.45")
+            ],
         authors: [Contacts.kristoffer_arnsfelt_hansen, Contacts.steffan_soelvsten],
-        notes: Some(React.string({j|Submitted to MFCS 2020|j})),
+        notes: Some(<>
+            {React.string({j|Published at MFCS 2020; the pre-recorded presentation can be found |j})}
+            {<Link text="here" href="https://www.youtube.com/watch?v=QoQaaPSoQdQ"/>}
+            {React.string(".")}
+        </>),
     }
 ];
 
