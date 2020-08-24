@@ -3,7 +3,7 @@ open Contact;
 [@react.component]
 let make = () => {
     <div className="info">
-        <img className="portrait" src="img/portrait2.jpg"/>
+        <img className="portrait" src="img/portrait2_bw.jpg"/>
         <div className="contact">
             {React.string("Email: ")}
             <Link text="soelvsten@cs.au.dk" href="mailto:soelvsten@cs.au.dk" />  <br />
