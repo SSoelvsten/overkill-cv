@@ -1,7 +1,17 @@
 body {
   margin: 1rem 10%;
-  font-family: "Segoe UI", Helvetica, Arial,
-    sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: "Open Sans", sans-serif, Helvetica, Arial;
+  font-weight: 500;
+}
+
+a {
+  color: #505560;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #2070d0;
+  text-decoration: underline;
 }
 
 .rc {
@@ -62,7 +72,7 @@ body {
 
 /* Publications Component */
 li.publication emph {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /* Footer */
