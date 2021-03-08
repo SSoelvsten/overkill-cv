@@ -46,20 +46,20 @@ a:hover {
 }
 
 .header .info .contact {
-  width: 15rem;
+  width: 18rem;
 }
 
 .header .info .text {
-  width: calc(100% - 22rem - 17rem);
+  width: calc(100% - 20rem - 18rem - 4rem);
 }
 
-@media screen and (max-width : 1200px) {
+@media screen and (max-width : 1400px) {
   .header .info .portrait {
     display: none;
   }
 
   .header .info .text {
-    width: calc(100% - 20rem);
+    width: calc(100% - 18rem - 4rem);
   }
 }
 
@@ -71,6 +71,10 @@ a:hover {
 }
 
 /* Publications Component */
+li.publication {
+  margin-bottom: 1rem;
+}
+
 li.publication emph {
   font-weight: 700;
 }
