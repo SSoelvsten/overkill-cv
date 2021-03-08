@@ -1,5 +1,19 @@
 open Contact;
 
+type project = {
+    name: string,
+    url: string,
+    description: string
+};
+
+let projects : list(project) = [
+    {
+        name: "Adiar",
+        url: "github.com/ssoelvsten/adiar",
+        description: "An I/O efficient implementation of Binary Decision Diagrams (BDDs)"
+    }
+];
+
 [@react.component]
 let make = () => {
     <div className="info">
@@ -15,8 +29,8 @@ let make = () => {
             <Link text="Department of Computer Science" href="https://cs.au.dk/en/"/> <br />
             <Link text="Aarhus University" href="https://au.dk/en/"/> <br />
             {"Office: " |> React.string}
-            <Link text="Turing" href="https://international.au.dk/about/contact/?b=5341" />
-            {" 218," |> React.string} <br />
+            <Link text="Turing 218" href="https://international.au.dk/about/contact/?b=5341" />
+            <br />
 
             <br />
 
@@ -28,11 +42,19 @@ let make = () => {
         <div className="text">
             {"PhD student advised by " |> React.string}
             {link_of_contact(Contacts.jaco_van_de_pol)}
-            {" researching optimisation of algorithms and datastructures for model verification and synthesis of Multi-agent Games." |> React.string}
+            {" researching the theoretical and practical design of logics, algorithms, and data structures for model checking and synthesis of Multi-Agent Systems (MAS)." |> React.string}
 
             <br /> <br />
 
-            {"My research focuses on both theoretical insights on the underlying theory of model verification and algorithmic game theory, but also the development of new techniques and optimisations for model checking and synthesis of Multi-agent systems." |> React.string}
+            {"Tools I have developed as part of my research:" |> React.string}
+            <ul>
+                {projects |> List.map(({name,url,description}) => {
+                    <li>
+                        <Link text={name} href={url} />
+                        {": " ++ description ++ "." |> React.string}
+                    </li>
+                }) |> Array.of_list |> React.array}
+            </ul>
         </div>
     </div>
 }

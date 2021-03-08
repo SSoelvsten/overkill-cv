@@ -68,8 +68,8 @@ let make = () => {
 
         <br /> <br />
 
-        {"I have supervised 2 bachelor students in implementing a " |> React.string}
-        <Link text={"Cache-oblivious Ordered Boolean Decision Diagram"} href={"https://github.com/SSoelvsten/cache-oblivious-obdd"} />
-        {" for a summer project based on a paper by Lars Arge in 1996 and my heavy optimisations and extensions thereof." |> React.string}
+        {"I have also supervised 2 bachelor students as they for a summer project implemented an " |> React.string}
+        <Link text={"I/O-efficient Binary Decision Diagram"} href={"https://github.com/SSoelvsten/adiar"} />
+        {" based on my work following up on a paper by Lars Arge in 1996." |> React.string}
     </>
 }
