@@ -18,6 +18,14 @@ let publications : list(publication) = [
         note: None,
         note_urls: [("arXiv", "https://arxiv.org/abs/2006.08314"),
                     ("Pre-recorded presentation", "https://www.youtube.com/watch?v=QoQaaPSoQdQ")],
+    },
+    {
+        title: {j|Efficient Binary Decision Diagram Manipulation in External Memory|j},
+        year: 2021,
+        url: None,
+        authors: [Contacts.steffan_soelvsten, Contacts.jaco_van_de_pol, Contacts.anna_blume_jakobsen, Contacts.mathias_weller_berg_thomasen],
+        note: Some("Submitted to CAV 2021. " |> React.string),
+        note_urls: [("GitHub project", "https://github.com/ssoelvsten/adiar")],
     }
 ];
 
@@ -26,36 +34,38 @@ let make = () => {
     <>
         <h2>{React.string("Publications")}</h2>
         <ul>
-            {publications |> List.map(({title, year, url, authors, note, note_urls}) => {
-                <li className="publication" key={title}>
-                    {authors |> List.map(({name}) => name )
-                             |> Array.of_list
-                             |> Js.Array.joinWith(", ")
-                             |> React.string}
-                    <br />
+            {publications
+                |> List.sort((a,b) => {b.year - a.year})
+                |> List.map(({title, year, url, authors, note, note_urls}) => {
+                    <li className="publication" key={title}>
+                        {authors |> List.map(({name}) => name )
+                                |> Array.of_list
+                                |> Js.Array.joinWith(", ")
+                                |> React.string}
+                        <br />
 
-                    <emph> {React.string(title)} </emph>
-                    { switch (url) {
-                        | None => <> </>
-                        | Some((publication, href)) => <>
-                            {React.string(", ")}
-                            <Link text={publication} href={href} />
-                        </>
-                    }}
-                    {(" (" ++ string_of_int(year) ++ ")") |> React.string}
+                        <emph> {React.string(title)} </emph>
+                        { switch (url) {
+                            | None => <> </>
+                            | Some((publication, href)) => <>
+                                {React.string(", ")}
+                                <Link text={publication} href={href} />
+                            </>
+                        }}
+                        {(" (" ++ string_of_int(year) ++ ")") |> React.string}
 
-                    { switch (note, note_urls) {
-                    | (None, []) => <> </>
-                    | (Some(note), _) => <> <br /> note </>
-                    | _ => <br />
-                    }}
-                    { note_urls |> List.mapi((idx, (name,url)) => <>
-                            <Link text={name} href={url} />
-                            {if (idx < List.length(note_urls) - 1) {React.string(", ")} else {<> </>}}
-                        </>) |> Array.of_list |> React.array}
-                </li>
-            }) |> Array.of_list
-               |> React.array}
+                        { switch (note, note_urls) {
+                        | (None, []) => <> </>
+                        | (Some(note), _) => <> <br /> note </>
+                        | _ => <br />
+                        }}
+                        { note_urls |> List.mapi((idx, (name,url)) => <>
+                                <Link text={name} href={url} />
+                                {if (idx < List.length(note_urls) - 1) {React.string(", ")} else {<> </>}}
+                            </>) |> Array.of_list |> React.array}
+                    </li>
+                })
+                |> Array.of_list |> React.array}
         </ul>
     </>
 }
