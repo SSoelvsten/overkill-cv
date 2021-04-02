@@ -17,10 +17,10 @@ honorable paths are even fewer. Hence this website is made the following way
     absolutely no bugs in it anywhere!
 - A server-side rendering of the application is then replacing the `root` node
   for React in the HTML template.
-- The server-side rendering is automatically deployed to the `master` branch as
-  a Github Action on each commit on the `develop`.
+- The server-side rendering is automatically deployed to the `main` branch as a
+  Github Action on each commit on the `develop`.
   
-To support continuous integration, the `master` branch only contains the build
+To support continuous integration, the `main` branch only contains the build
 files, while all the magic happens on this branch.
   
 ## Dependencies
