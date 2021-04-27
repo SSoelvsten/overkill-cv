@@ -9,7 +9,7 @@ type project = {
 let projects : list(project) = [
     {
         name: "Adiar",
-        url: "github.com/ssoelvsten/adiar",
+        url: "https://www.github.com/ssoelvsten/adiar",
         description: "An I/O efficient implementation of Binary Decision Diagrams (BDDs)"
     }
 ];
