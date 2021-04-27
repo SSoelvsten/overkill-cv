@@ -20,13 +20,14 @@ let publications : list(publication) = [
                     ("Pre-recorded presentation", "https://www.youtube.com/watch?v=QoQaaPSoQdQ")],
     },
     {
-        title: {j|Efficient Binary Decision Diagram Manipulation in External Memory|j},
+        title: {j|Adiar: Binary Decision Diagrams in External Memory|j},
         year: 2021,
         url: None,
         authors: [Contacts.steffan_soelvsten, Contacts.jaco_van_de_pol, Contacts.anna_blume_jakobsen, Contacts.mathias_weller_berg_thomasen],
-        note: Some("Submitted to CAV 2021. " |> React.string),
-        note_urls: [("GitHub project", "https://github.com/ssoelvsten/adiar")],
-    }
+        note: Some("Submitted to FM 2021." |> React.string),
+        note_urls: [("arXiv", "https://arxiv.org/abs/2104.12101"),
+                    ("GitHub project", "https://github.com/ssoelvsten/adiar")],
+    },
 ];
 
 [@react.component]
